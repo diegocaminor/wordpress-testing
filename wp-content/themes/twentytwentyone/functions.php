@@ -739,3 +739,19 @@ function companies_type() {
   add_action('init', 'companies_type');
 // End Company Custom Post Type
   
+  // widgets
+function sidebar() {
+	register_sidebar(
+	  array(
+		'name' => ' My custom footer',
+		'id' => 'customFooter',
+		'description' => 'Wigets zone for footer',
+		'before_title' => '<p>',
+		'after_title' => '</p>',
+		'before_widget' => '<div id="%1$s" class="%2$s">',
+		'after_widget' => '</div>',
+	  )
+	  );
+  }
+  
+  add_action( 'widgets_init', 'sidebar');
