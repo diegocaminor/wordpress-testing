@@ -654,3 +654,88 @@ if ( ! function_exists( 'wp_get_list_item_separator' ) ) :
 		return __( ', ', 'twentytwentyone' );
 	}
 endif;
+
+// Begin Product Custom Post Type
+function products_type() {
+	$labels = array(
+	  'name' => 'Product',
+	  'singular_name' => 'Product',
+	  'menu_name' => 'Products',
+	);
+	$args = array(
+	  'label' => 'Products',
+	  'description' => 'Products description',
+	  'labels' => $labels,
+	  'supports' => array('title', 'editor', 'thumbnail', 'revisions'),
+	  'public' => true,
+	  'show_in_menu' => true,
+	  'menu_position' => 5,
+	  'menu_icon' => 'dashicons-cart',
+	  'can_export' => true,
+	  'publicly_queryable' => true,
+	//   'rewrite' => true,
+	//   'show_in_rest' => true
+	);
+	// post type should be as singular as best practice
+	register_post_type( 'product', $args );
+  }
+  
+  add_action('init', 'products_type');
+// End Product Custom Post Type
+
+// Begin Person Custom Post Type
+function persons_type() {
+	$labels = array(
+	  'name' => 'Person',
+	  'singular_name' => 'Person',
+	  'menu_name' => 'Persons',
+	);
+	$args = array(
+	  'label' => 'Persons',
+	  'description' => 'Person description',
+	  'labels' => $labels,
+	  'supports' => array('title', 'editor', 'thumbnail', 'revisions'),
+	  'public' => true,
+	  'show_in_menu' => true,
+	  'menu_position' => 5,
+	  'menu_icon' => 'dashicons-admin-users',
+	  'can_export' => true,
+	  'publicly_queryable' => true,
+	//   'rewrite' => true,
+	//   'show_in_rest' => true
+	);
+	// post type should be as singular as best practice
+	register_post_type( 'person', $args );
+  }
+  
+  add_action('init', 'persons_type');
+// End Person Custom Post Type
+
+// Begin Company Custom Post Type
+function companies_type() {
+	$labels = array(
+	  'name' => 'Company',
+	  'singular_name' => 'Company',
+	  'menu_name' => 'Companies',
+	);
+	$args = array(
+	  'label' => 'Companies',
+	  'description' => 'Company description',
+	  'labels' => $labels,
+	  'supports' => array('title', 'editor', 'thumbnail', 'revisions'),
+	  'public' => true,
+	  'show_in_menu' => true,
+	  'menu_position' => 5,
+	  'menu_icon' => 'dashicons-admin-multisite',
+	  'can_export' => true,
+	  'publicly_queryable' => true,
+	//   'rewrite' => true,
+	//   'show_in_rest' => true
+	);
+	// post type should be as singular as best practice
+	register_post_type( 'company', $args );
+  }
+  
+  add_action('init', 'companies_type');
+// End Company Custom Post Type
+  
